@@ -82,6 +82,41 @@ const quickAccess = [
   "Knowledge Network"
 ];
 
+const languageGroups = [
+  {
+    country: "Kenya",
+    languages: ["Swahili", "English", "Kikuyu", "Luo", "Kalenjin", "Luhya", "Kamba", "Kisii"]
+  },
+  {
+    country: "Nigeria",
+    languages: ["English", "Hausa", "Yoruba", "Igbo", "Fulfulde", "Kanuri", "Tiv", "Other indigenous languages"]
+  },
+  {
+    country: "South Africa",
+    languages: ["English", "Zulu", "Xhosa", "Afrikaans", "Sesotho", "Setswana", "Sepedi", "Tsonga", "Venda", "Ndebele", "Siswati", "South African Sign Language"]
+  },
+  {
+    country: "Ethiopia",
+    languages: ["Amharic", "Oromo", "Tigrinya", "Somali", "Afar", "Sidama", "Other Ethiopian languages"]
+  },
+  {
+    country: "Tanzania",
+    languages: ["Swahili", "English", "Sukuma", "Chagga", "Haya", "Nyamwezi", "Other local languages"]
+  },
+  {
+    country: "Ghana",
+    languages: ["English", "Akan (Twi/Fante)", "Ewe", "Ga", "Dagbani", "Nzema", "Other Ghanaian languages"]
+  },
+  {
+    country: "Uganda",
+    languages: ["English", "Swahili", "Luganda", "Runyankole", "Ateso", "Luo", "Other indigenous languages"]
+  },
+  {
+    country: "Zambia",
+    languages: ["English", "Bemba", "Nyanja", "Tonga", "Lozi", "Kaonde", "Lunda", "Luvale"]
+  }
+];
+
 const copilotAnswers: Record<string, string> = {
   maize: "There are 8 active maize disease projects in Kenya, Zambia, Malawi, Tanzania, and Zimbabwe. Northern Zambia is flagged for follow-up based on recent field reports.",
   grants: "The grants with the best delivery record are multi-country projects with field validation and regular partner reporting. Plant health surveillance is currently at 92% milestone completion.",
@@ -338,6 +373,7 @@ export default function Dashboard() {
   const [query, setQuery] = useState("");
   const [answer, setAnswer] = useState("How can I help? I can look up grants, reports, policy documents, and MEL indicators.");
   const [chatOpen, setChatOpen] = useState(false);
+  const [language, setLanguage] = useState("Kenya: Swahili");
 
   const sectionHint = useMemo(() => {
     if (section === "Dashboard") return "Portfolio status, funding, project delivery, and research outputs.";
@@ -454,7 +490,26 @@ export default function Dashboard() {
             <p>{sectionHint}</p>
           </div>
           <div className="top-actions">
-            <button onClick={() => setToast("Language menu")}>EN</button>
+            <label className="language-control">
+              <span>Language</span>
+              <select
+                value={language}
+                onChange={(event) => {
+                  setLanguage(event.target.value);
+                  setToast(`Language set to ${event.target.value.replace(": ", " - ")}`);
+                }}
+              >
+                {languageGroups.map((group) => (
+                  <optgroup label={group.country} key={group.country}>
+                    {group.languages.map((item) => (
+                      <option key={`${group.country}-${item}`} value={`${group.country}: ${item}`}>
+                        {group.country} - {item}
+                      </option>
+                    ))}
+                  </optgroup>
+                ))}
+              </select>
+            </label>
             <button className="notification-button" onClick={() => setToast("8 notifications")}>8</button>
             <img src="/assets/sgci-logo.png" alt="SGCI" />
           </div>
