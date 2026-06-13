@@ -85,15 +85,15 @@ const quickAccess = [
 const languageGroups = [
   {
     country: "Kenya",
-    languages: ["Swahili", "English", "Kikuyu", "Luo", "Kalenjin", "Luhya", "Kamba", "Kisii"]
+    languages: ["Swahili", "Kikuyu", "Luo", "Kalenjin", "Luhya", "Kamba", "Kisii"]
   },
   {
     country: "Nigeria",
-    languages: ["English", "Hausa", "Yoruba", "Igbo", "Fulfulde", "Kanuri", "Tiv", "Other indigenous languages"]
+    languages: ["Hausa", "Yoruba", "Igbo", "Fulfulde", "Kanuri", "Tiv", "Other indigenous languages"]
   },
   {
     country: "South Africa",
-    languages: ["English", "Zulu", "Xhosa", "Afrikaans", "Sesotho", "Setswana", "Sepedi", "Tsonga", "Venda", "Ndebele", "Siswati", "South African Sign Language"]
+    languages: ["Zulu", "Xhosa", "Afrikaans", "Sesotho", "Setswana", "Sepedi", "Tsonga", "Venda", "Ndebele", "Siswati", "South African Sign Language"]
   },
   {
     country: "Ethiopia",
@@ -101,19 +101,19 @@ const languageGroups = [
   },
   {
     country: "Tanzania",
-    languages: ["Swahili", "English", "Sukuma", "Chagga", "Haya", "Nyamwezi", "Other local languages"]
+    languages: ["Swahili", "Sukuma", "Chagga", "Haya", "Nyamwezi", "Other local languages"]
   },
   {
     country: "Ghana",
-    languages: ["English", "Akan (Twi/Fante)", "Ewe", "Ga", "Dagbani", "Nzema", "Other Ghanaian languages"]
+    languages: ["Akan (Twi/Fante)", "Ewe", "Ga", "Dagbani", "Nzema", "Other Ghanaian languages"]
   },
   {
     country: "Uganda",
-    languages: ["English", "Swahili", "Luganda", "Runyankole", "Ateso", "Luo", "Other indigenous languages"]
+    languages: ["Swahili", "Luganda", "Runyankole", "Ateso", "Luo", "Other indigenous languages"]
   },
   {
     country: "Zambia",
-    languages: ["English", "Bemba", "Nyanja", "Tonga", "Lozi", "Kaonde", "Lunda", "Luvale"]
+    languages: ["Bemba", "Nyanja", "Tonga", "Lozi", "Kaonde", "Lunda", "Luvale"]
   }
 ];
 
@@ -373,7 +373,7 @@ export default function Dashboard() {
   const [query, setQuery] = useState("");
   const [answer, setAnswer] = useState("How can I help? I can look up grants, reports, policy documents, and MEL indicators.");
   const [chatOpen, setChatOpen] = useState(false);
-  const [language, setLanguage] = useState("Kenya: Swahili");
+  const [language, setLanguage] = useState("English");
 
   const sectionHint = useMemo(() => {
     if (section === "Dashboard") return "Portfolio status, funding, project delivery, and research outputs.";
@@ -499,6 +499,7 @@ export default function Dashboard() {
                   setToast(`Language set to ${event.target.value.replace(": ", " - ")}`);
                 }}
               >
+                <option value="English">English</option>
                 {languageGroups.map((group) => (
                   <optgroup label={group.country} key={group.country}>
                     {group.languages.map((item) => (
