@@ -1,0 +1,13 @@
+.next/
+node_modules/
+.vercel/
+.playwright-mcp/
+
+*.log
+*.tsbuildinfo
+
+# Local verification screenshots
+*.png
+
+# Temporary source crops not used by the app
+assets/
