@@ -63,7 +63,9 @@ const alerts = [
   ["Risk", "3 projects are delayed", "Require attention", "2h ago"],
   ["Funding", "New call for proposals", "Agriculture research funding window", "5h ago"],
   ["Report", "Quarterly MEL report", "Q2 2026 report is ready", "1d ago"],
-  ["Meeting", "CSC Meeting Reminder", "15 May 2026", "1d ago"]
+  ["Meeting", "CSC Meeting Reminder", "15 May 2026", "1d ago"],
+  ["Finance", "5 acquittals pending", "Finance review due this week", "2d ago"],
+  ["Review", "Reviewer assignments due", "12 proposals awaiting confirmation", "2d ago"]
 ];
 
 const insights = [
