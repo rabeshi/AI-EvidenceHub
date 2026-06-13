@@ -8,6 +8,7 @@ node_modules/
 
 # Local verification screenshots
 *.png
+!public/assets/sgci-logo.png
 
 # Temporary source crops not used by the app
-assets/
+/assets/
