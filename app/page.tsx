@@ -511,7 +511,14 @@ export default function Dashboard() {
                 ))}
               </select>
             </label>
-            <button className="notification-button" onClick={() => setToast("8 notifications")}>8</button>
+            <button className="notification-button" onClick={() => setToast("8 notifications")} aria-label="8 notifications">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4.5 6.5A3.5 3.5 0 0 1 8 3h8a3.5 3.5 0 0 1 3.5 3.5v5A3.5 3.5 0 0 1 16 15h-4.8L6 19v-4.2a3.5 3.5 0 0 1-1.5-2.9z" />
+                <path d="M8 8h8" />
+                <path d="M8 11h5" />
+              </svg>
+              <span>8</span>
+            </button>
             <img src="/assets/sgci-logo.png" alt="SGCI" />
           </div>
         </header>
